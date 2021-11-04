@@ -4,7 +4,13 @@ module.exports = {
   ],
   darkMode: false, // or 'media' or 'class'
   theme: {
-    extend: {},
+    extend: {
+      colors: {
+        app: {
+          "pink": '#EE4380',
+        },
+      },
+    },
   },
   variants: {
     extend: {},

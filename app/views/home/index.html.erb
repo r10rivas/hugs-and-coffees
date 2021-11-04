@@ -1,0 +1,32 @@
+<div class='min-h-screen p-4 flex flex-col justify-between items-center lg:py-8'>
+  <div class="w-40 my-4 md:w-44">
+    <%= image_pack_tag('coffees.svg', class: 'w-full') %>
+  </div>
+  <h3 class="mb-3 text-center text-xl md:text-2xl">
+    Un café es un abrazo atrapado en una taza
+  </h3>
+  <h5 class="mb-6 text-gray-400 text-center text-lg md:text-xl">
+    Recibe aprecio y gratitud mediante donaciones online
+  </h5>
+  <div class="flex flex-col mb-8">
+    <%= link_to 'Crear mi perfil', new_user_registration_path, class: 'px-4 py-3 bg-app-pink rounded-md text-white text-center' %>
+    <div class='p-4 text-center'>
+      Ya tienes perfil?
+      <%= link_to('Sign in', new_user_session_path, { class: 'font-medium text-app-pink hover:text-opacity-80 cursor-pointer' }) %>
+    </div>
+  </div>
+</div>
+<div class='min-h-screen px-4 py-8 flex flex-col justify-between items-center bg-app-pink text-white lg:py-12'>
+  <div class=''>
+    <h3 class='font-happy-monkey mt-4 mb-3 text-center text-xl md:text-2xl'>
+      Un perfil dedicado a recibir agradecimientos
+    </h3>
+    <hr class='w-full border-b-2 mb-6 lg:mb-12'/>
+    <p class='mb-4 text-center text-lg md:text-xl'>
+      Puedes crear una página en minutos sin conocimientos técnicos. Muestra tus datos y agradecimientos recibidos de otras personas.
+    </p>
+  </div>
+  <div class='w-60 my-4 md:w-72'>
+    <%= image_pack_tag('cellphones.svg', class: 'w-full') %>
+  </div>
+</div>
