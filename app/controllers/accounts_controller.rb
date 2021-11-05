@@ -1,8 +1,7 @@
 class AccountsController < ApplicationController
   def index
-    user = User.find_by(params[:user_id])
-
-    render json: user.accounts
+    @user = User.find_by(params[:user_id])
+    @accounts = @user.accounts
   end
 
   def new
@@ -20,6 +19,21 @@ class AccountsController < ApplicationController
     else
       flash.now[:errors] = @account.errors.full_messages
       render :new
+    end
+  end
+
+  def edit
+    @account = Account.find_by(id: params[:id])
+  end
+
+  def update
+    @account = Account.find_by(id: params[:id])
+
+    if @account.update(account_params)
+      redirect_to(user_accounts_path(current_user), notice: 'Cuenta actualizada exitosamente.')
+    else
+      flash.now[:errors] = @account.errors.full_messages
+      render :edit
     end
   end
 
