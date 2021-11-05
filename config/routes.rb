@@ -5,5 +5,6 @@ Rails.application.routes.draw do
 
   resources :users, shallow: true do
     resource :profile, only: %w[edit update]
+    resources :accounts
   end
 end
