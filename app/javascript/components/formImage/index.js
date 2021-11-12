@@ -49,8 +49,9 @@ function FormImage({ name, imagesFile }) {
             // fieldName is the name of the input field
             // file is the actual file object to send
             const formData = new FormData();
-            formData.append(fieldName, file, file.name);
+            // formData.append(fieldName, file, file.name);
             formData.append('image[filename]', file.name);
+            formData.append('image[file]', file);
 
             let request = new XMLHttpRequest();
 
