@@ -24,6 +24,8 @@ class Profile < ApplicationRecord
 
   validates :biography, :full_name, :occupation, presence: true
 
+  has_one_attached :image
+
   before_update do
     if biography.present? && full_name.present? &&
       occupation.present? && completed === false
