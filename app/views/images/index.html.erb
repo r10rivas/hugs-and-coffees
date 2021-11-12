@@ -1,0 +1,39 @@
+<div class='container mx-auto px-4 py-6'>
+  <%= render( partial: 'shared/page_heading',
+              locals: { title: 'Carousel de imagenes',
+                        action_button: { name: 'Agregar', path: new_user_image_path(@user) } } ) %>
+
+  <div class='bg-white shadow sm:rounded-md'>
+    <%- if @images.exists? %>
+      <ul class='divide-y divide-gray-200'>
+        <%- @images.each do |image| %>
+          <li>
+            <div class='p-4 sm:px-6'>
+              <div class="w-full flex justify-between">
+                <div class=" flex min-w-0">
+                  <div>
+                    <div class="w-10 h-10 mr-3 flex-shrink-0">
+                      <%= image_tag(image.file, class: 'w-full h-full rounded-full') %>
+                    </div>
+                  </div>
+                  <p class="mt-1 text-sm text-gray-500 truncate">
+                    <%= image.caption %>
+                  </p>
+                </div>
+
+                <div class="flex min-w-0 flex-shrink-0">
+                  <%= react_component("dropdown",
+                                      { options: [{path: edit_image_path(image), label: 'Editar'},
+                                                  { path: image_path(image), label: 'Eliminar', method: :delete, confirm: '¿Está seguro que desea eliminar esta imagen?' }]}
+                                     ) %>
+                </div>
+              </div>
+            </div>
+          </li>
+        <% end %>
+      </ul>
+    <% end %>
+  </div>
+</div>
+
+

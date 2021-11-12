@@ -27,4 +27,6 @@ class Account < ApplicationRecord
   belongs_to :user
 
   enum kind: { saving: 0, checking: 1 }
+
+  validates :dni, :email, :kind, :number, presence: true
 end

@@ -6,5 +6,11 @@ Rails.application.routes.draw do
   resources :users, shallow: true do
     resource :profile, only: %w[edit update]
     resources :accounts
+    resources :images
+  end
+
+  namespace :api do
+    post 'images_uploads', to: 'images_uploads#create'
+    get 'images_uploads/:blob_id', to: 'images_uploads#show'
   end
 end

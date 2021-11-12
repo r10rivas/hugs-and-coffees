@@ -24,6 +24,7 @@ class User < ApplicationRecord
 
   has_one :profile
   has_many :accounts
+  has_many :images
 
   after_create :init_profile
 
