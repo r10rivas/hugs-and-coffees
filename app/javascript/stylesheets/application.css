@@ -1,3 +1,14 @@
 @import "tailwindcss/base";
-@import "tailwindcss/utilities";
 @import "tailwindcss/components";
+
+@font-face {
+  font-family: 'Roboto';
+  src: url('./../fonts/roboto/regular.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'Happy-Monkey';
+  src: url('./../fonts/happy-monkey/regular.ttf') format('truetype');
+}
+
+@import "tailwindcss/utilities";

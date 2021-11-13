@@ -10,6 +10,10 @@ module.exports = {
           "pink": '#EE4380',
         },
       },
+      fontFamily: {
+        "happy-monkey": ["Happy-Monkey"],
+        "roboto": ["Roboto"],
+      },
     },
   },
   variants: {
