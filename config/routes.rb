@@ -4,7 +4,8 @@ Rails.application.routes.draw do
   devise_for :users
 
   resources :users, shallow: true do
-    resource :profile, only: %w[edit update]
+    resource :profile, only: %w[edit update show]
+    resources :acknowledgments, only: %w[new]
     resources :accounts
     resources :images
   end

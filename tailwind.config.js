@@ -23,6 +23,17 @@ module.exports = {
       maxHeight: {
         "screen-without-navbar": "calc(100vh - 4rem)",
       },
+      maxWidth: {
+        "72": "18rem",
+        "80": "20rem",
+        "88": "22rem",
+        "92": "23rem",
+      },
+      minWidth: {
+        "72": "18rem",
+        "80": "20rem",
+        "88": "22rem",
+      },
     },
   },
   variants: {
@@ -30,5 +41,6 @@ module.exports = {
   },
   plugins: [
     require("@tailwindcss/forms"),
+    require('@tailwindcss/line-clamp'),
   ],
 }

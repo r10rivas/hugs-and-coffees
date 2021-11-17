@@ -25,12 +25,12 @@
                                           required: true } %>
               </div>
               <div class='col-span-6 sm:col-span-4'>
-                <%=  f.label :occupation, { class: 'block text-sm font-medium text-gray-700' } %>
+                <%=  f.label :occupation, 'Ocupación', { class: 'block text-sm font-medium text-gray-700' } %>
                 <%= f.text_field :occupation, { class: 'mt-1 focus:ring-app-pink focus:border-app-pink block w-full shadow-sm sm:text-sm border-gray-300 rounded-md', placeholder: 'Ocupación', required: true } %>
               </div>
               <div class='col-span-6'>
-                <%= f.label :biography, { class: 'block text-sm font-medium text-gray-700' } %>
-                <%= f.text_area :biography, { class: 'shadow-sm focus:ring-app-pink focus:border-app-pink mt-1 block w-full sm:text-sm border-gray-300 rounded-md',placeholder: 'Biografia' } %>
+                <%= f.label :biography, 'Biografria', { class: 'block text-sm font-medium text-gray-700' } %>
+                <%= f.text_area :biography, { class: 'shadow-sm focus:ring-app-pink focus:border-app-pink mt-1 block w-full sm:text-sm border-gray-300 rounded-md',placeholder: 'Biografia', rows: 8 } %>
               </div>
             </div>
           </div>

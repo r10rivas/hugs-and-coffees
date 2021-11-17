@@ -5,11 +5,7 @@ function Navbar({ options, userData }) {
 
   useEffect(() => {
     const body = document.querySelector("body");
-    if (isMenuOpen) {
-      body.classList.add("overflow-y-hidden");
-    } else {
-      body.classList.remove("overflow-y-hidden");
-    }
+    body.classList.toggle("overflow-y-hidden", isMenuOpen);
 
     return () => {
       body.classList.remove("overflow-y-hidden");
@@ -76,8 +72,8 @@ function Navbar({ options, userData }) {
               <div className="w-full h-16 sticky top-0 border-l border-gray-200 flex items-center justify-center">
                 <div className="flex items-center px-4">
                   <div className="flex-shrink-0 min-w-0">
-                  <img alt="User image" className="h-10 w-10 bg-white border border-red-700 rounded-full" src={userData.image}>
-                  </img>
+                    <img alt="User image" className="h-10 w-10 bg-white border border-red-700 rounded-full" src={userData.image}>
+                    </img>
                   </div>
                   <div className="ml-3 min-w-0">
                     <p className="text-base font-medium text-gray-800 truncate">

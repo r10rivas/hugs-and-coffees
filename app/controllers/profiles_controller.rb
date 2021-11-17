@@ -1,4 +1,10 @@
 class ProfilesController < ApplicationController
+  layout 'without_signed_in', only: [:show]
+
+  def show
+    @profile = Profile.find_by(user_id: params[:user_id])
+  end
+
   def edit
     @profile = Profile.find_by(user_id: params[:user_id])
   end
