@@ -28,7 +28,7 @@ function ImagesCarrousel({imagesData}) {
       <figure className="relative inline-block overflow-hidden mt-4 mx-auto w-full min-w-72 max-w-72 sm:min-w-80 sm:max-w-80 md:max-w-92">
         <div className="h-72">
           <img className="rounded-lg" src={item.image}></img>
-          <h3 className="italic line-clamp-3">{item.subtitule}</h3>
+          <h3 className="mt-2 italic line-clamp-3">{item.subtitule}</h3>
         </div>
       </figure>
     )
@@ -46,8 +46,8 @@ function ImagesCarrousel({imagesData}) {
     }
 
     return ( 
-      <p className="px-4 py-10">
-        No tiene imágenes registradas
+      <p className="mt-12 px-4 py-10">
+        No tiene imágenes registradas.
       </p>
     )
   }
