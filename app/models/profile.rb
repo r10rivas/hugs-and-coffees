@@ -32,4 +32,8 @@ class Profile < ApplicationRecord
       self.completed = true
     end
   end
+
+  def first_name
+    full_name.split(' ').first
+  end
 end

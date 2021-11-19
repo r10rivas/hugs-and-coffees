@@ -22,9 +22,10 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
-  has_one :profile
   has_many :accounts
+  has_many :coffees
   has_many :images
+  has_one :profile
 
   after_create :init_profile
 

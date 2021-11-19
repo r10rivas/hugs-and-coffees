@@ -4,14 +4,16 @@ Rails.application.routes.draw do
   devise_for :users
 
   resources :users, shallow: true do
-    resource :profile, only: %w[edit update show]
-    resources :acknowledgments, only: %w[new]
     resources :accounts
+    resources :acknowledgments, only: %w[new]
+    resources :coffees, only: %w[new create]
     resources :images
+    resource :profile, only: %w[edit update show]
   end
 
   namespace :api do
     post 'images_uploads', to: 'images_uploads#create'
     get 'images_uploads/:blob_id', to: 'images_uploads#show'
+    resources :accounts, only: %w[show]
   end
 end

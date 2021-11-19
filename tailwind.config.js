@@ -7,7 +7,7 @@ module.exports = {
     extend: {
       colors: {
         app: {
-          "pink": '#EE4380',
+          "pink": "#EE4380",
         },
       },
       fontFamily: {
@@ -24,6 +24,7 @@ module.exports = {
         "screen-without-navbar": "calc(100vh - 4rem)",
       },
       maxWidth: {
+        "32": "8rem",
         "72": "18rem",
         "80": "20rem",
         "88": "22rem",
@@ -37,10 +38,12 @@ module.exports = {
     },
   },
   variants: {
-    extend: {},
+    extend: {
+      margin: ["first"]
+    },
   },
   plugins: [
     require("@tailwindcss/forms"),
-    require('@tailwindcss/line-clamp'),
+    require("@tailwindcss/line-clamp"),
   ],
 }
