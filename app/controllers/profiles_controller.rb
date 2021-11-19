@@ -1,5 +1,5 @@
 class ProfilesController < ApplicationController
-  layout 'without_signed_in', only: [:show]
+  layout 'no_login', only: [:show]
 
   def show
     @profile = Profile.find_by(user_id: params[:user_id])
