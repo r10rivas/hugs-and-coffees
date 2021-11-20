@@ -31,7 +31,7 @@ function Navbar({ options, userData }) {
       options.map((option, index) => (
         <li className="flex" key={index}>
           <a
-            className={`p-4 w-full flex items-center text-gray-500 hover:text-app-pink hover:bg-app-pink hover:bg-opacity-20 ${option.active ? 'text-app-pink bg-app-pink bg-opacity-20' : ''}`}
+            className={`p-4 w-full flex items-center ${option.active ? 'text-app-pink' : 'text-gray-500'}`}
             href={option.path}
             data-method={option.method}
             data-confirm={option.confirm}
@@ -72,11 +72,11 @@ function Navbar({ options, userData }) {
               <div className="w-full h-16 sticky top-0 border-l border-gray-200 flex items-center justify-center">
                 <div className="flex items-center px-4">
                   <div className="flex-shrink-0 min-w-0">
-                    <img alt="User image" className="h-10 w-10 bg-white border border-red-700 rounded-full" src={userData.image}>
+                    <img alt="User image" className="h-10 w-10 bg-white border border-white rounded-full" src={userData.image}>
                     </img>
                   </div>
                   <div className="ml-3 min-w-0">
-                    <p className="text-base font-medium text-gray-800 truncate">
+                    <p className="text-base font-medium text-white truncate">
                       {userData.user}
                     </p>
                   </div>
