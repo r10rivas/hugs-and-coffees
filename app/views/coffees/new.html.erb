@@ -11,7 +11,8 @@
     <div class="w-full mt-8  max-w-xl mx-auto">
       <div class="p-4 bg-white">
         <h3 class="font-bold">¿Cuantos cafés?</h3>
-        <%= react_component('coffeeMultiplier', coffee: 200, currency: '$') %>
+        <%= react_component('coffeeMultiplier', { coffee: @user.profile.amount_coffee,
+                                                  currencySymbol: @user.profile.currency_symbol }) %>
       </div>
 
 

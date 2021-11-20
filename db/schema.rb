@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_11_18_181647) do
+ActiveRecord::Schema.define(version: 2021_11_20_023801) do
 
   create_table "accounts", force: :cascade do |t|
     t.string "dni"
@@ -89,6 +89,8 @@ ActiveRecord::Schema.define(version: 2021_11_18_181647) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.boolean "completed", default: false
+    t.decimal "amount_coffee"
+    t.string "currency_symbol"
     t.index ["user_id"], name: "index_profiles_on_user_id"
   end
 

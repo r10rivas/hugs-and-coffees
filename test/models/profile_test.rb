@@ -2,14 +2,16 @@
 #
 # Table name: profiles
 #
-#  id         :integer          not null, primary key
-#  biography  :string
-#  completed  :boolean          default(FALSE)
-#  full_name  :string
-#  occupation :string
-#  created_at :datetime         not null
-#  updated_at :datetime         not null
-#  user_id    :integer          not null
+#  id              :integer          not null, primary key
+#  amount_coffee   :decimal(, )
+#  biography       :string
+#  completed       :boolean          default(FALSE)
+#  currency_symbol :string
+#  full_name       :string
+#  occupation      :string
+#  created_at      :datetime         not null
+#  updated_at      :datetime         not null
+#  user_id         :integer          not null
 #
 # Indexes
 #

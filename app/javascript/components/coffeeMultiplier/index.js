@@ -1,7 +1,7 @@
 import React, {useState, useEffect} from "react";
 import coffeeImage from "./../../images/coffee.svg";
 
-function CoffeeMultiplier({coffee, currency}) {
+function CoffeeMultiplier({coffee, currencySymbol}) {
   const [totalCoffee, setTotalCoffee] = useState(null);
 
   const [currentMultiplier, setCurrentMultiplier] = useState(1);
@@ -55,10 +55,10 @@ function CoffeeMultiplier({coffee, currency}) {
         </div>
       </div>
       <div className="mt-2">
-        <span className="text-gray-700">{`${coffee} ${currency}`}</span>
+        <span className="text-gray-700">{`${coffee} ${currencySymbol}`}</span>
       </div>
       <div className="mt-2">
-        <span className="font-bold">{`Total: ${totalCoffee} ${currency}`}</span>
+        <span className="font-bold">{`Total: ${totalCoffee} ${currencySymbol}`}</span>
       </div>
     </div>
   )
