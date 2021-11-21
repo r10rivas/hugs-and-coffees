@@ -4,7 +4,7 @@ export default function Alert ({ closeCallback, id, type, messages }) {
   const kind = setKind(type);
 
   function setKind (type) {
-    if (type == 'errors') {
+    if (type == 'errors' || type == 'error') {
       return 'error'
     }
 
