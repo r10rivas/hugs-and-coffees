@@ -9,6 +9,7 @@
 #  currency_symbol :string
 #  full_name       :string
 #  occupation      :string
+#  public          :boolean          default(FALSE)
 #  created_at      :datetime         not null
 #  updated_at      :datetime         not null
 #  user_id         :integer          not null
@@ -24,18 +25,30 @@
 class Profile < ApplicationRecord
   belongs_to :user
 
-  validates :biography, :full_name, :occupation, presence: true
+  validates :biography, :full_name, :occupation, :amount_coffee, :currency_symbol, presence: true
+  validate :status_publishable, on: :update
 
   has_one_attached :image
 
+  def status_publishable
+    if changed.include?('public')
+      errors.add(:public, 'El perfil no cumple las condiciones para ser publicado.') unless publishable? 
+    end
+  end
+
   before_update do
     if biography.present? && full_name.present? &&
-      occupation.present? && completed === false
+      occupation.present? && amount_coffee.present? &&
+      currency_symbol.present? && completed === false
       self.completed = true
     end
   end
 
   def first_name
     full_name.split(' ').first
+  end
+
+  def publishable?
+    completed? && user.accounts.exists?
   end
 end

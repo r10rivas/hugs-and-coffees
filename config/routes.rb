@@ -8,7 +8,9 @@ Rails.application.routes.draw do
     resources :acknowledgments, only: %w[new]
     resources :coffees, only: %w[new create]
     resources :images
-    resource :profile, only: %w[edit update show]
+    resource :profile, only: %w[edit update show]  do
+      post 'update_status', on: :member
+    end
   end
 
   namespace :api do

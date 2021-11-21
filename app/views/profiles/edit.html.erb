@@ -1,6 +1,43 @@
 <div class='container mx-auto px-4 py-6'>
   <%= render( partial: 'shared/page_heading',
               locals: { title: 'Perfil' } ) %>
+  <%= form_with(url: update_status_user_profile_path(@profile.user), scope: :profile, local: true) do |f| %>
+    <div class='md:grid md:grid-cols-3 md:gap-6'>
+      <div class='md:col-span-1'>
+        <div class='px-4 sm:px-0'>
+          <h3 class='text- font-medium leading-6 text-gray-900'>
+            Publicar
+          </h3>
+          <p class="mt-1 text-sm text-gray-600">
+            Podras hacer publico tu perfil para recibir reconocimientos cuando lo hayas completado y hayas agregado una cuenta bancaria a tu cuenta.
+          </p>
+        </div>
+      </div>
+
+      <div class='mt-5 md:mt-0 md:col-span-2'>
+        <div class="overflow-hidden">
+          <div class="px-4 py-5 md:p-6">
+            <div class='grid grid-cols-6 gap-6'>
+              <div class='col-span-6'>
+                <%= f.hidden_field :public, value: !@profile.public %>
+                <div class="text-left md:text-right">
+                  <%= f.submit(@profile.public ? 'Despublicar' : 'Publicar', class: "inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-app-pink hover:bg-opacity-80 focus:outline-none focus:ring-2 focus:ring-offset-2  focus:ring-app-pink focus:ring-opacity-50 cursor-pointer #{'bg-opacity-60 pointer-events-none' unless @profile.publishable?}", disabled: !@profile.publishable?, data: { disable_with: 'Por favor espere...' }) %>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="hidden sm:block">
+      <div class="py-5">
+        <div class="border-t border-gray-200">
+        </div>
+      </div>
+    </div>
+  <% end %>
+
   <%= form_with(model: [@profile.user, @profile], local: true) do |f| %>
     <div class='md:grid md:grid-cols-3 md:gap-6'>
       <div class='md:col-span-1'>
@@ -98,9 +135,7 @@
             <div class='grid grid-cols-6 gap-6'>
               <div class="col-span-6 sm:col-span-4">
                 <%= f.label :amount_coffee, 'Monto del café', { class: 'block text-sm font-medium text-gray-700' } %>
-                <%= f.number_field :amount_coffee, { class: 'mt-1 focus:ring-app-pink focus:border-app-pink block w-full shadow-sm sm:text-sm border-gray-300 rounded-md',
-                                          placeholder: 'Monto del café',
-                                          required: true } %>
+                <%= f.number_field :amount_coffee, { class: 'mt-1 focus:ring-app-pink focus:border-app-pink block w-full shadow-sm sm:text-sm border-gray-300 rounded-md',step: 0.01, min: 0.01, placeholder: 'Monto del café', required: true } %>
               </div>
               <div class="col-span-6 sm:col-span-4">
                 <%=  f.label :currency_symbol, 'Simbolo del la moneda', { class: 'block text-sm font-medium text-gray-700' } %>

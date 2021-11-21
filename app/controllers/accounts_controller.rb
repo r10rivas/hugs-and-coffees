@@ -1,17 +1,17 @@
 class AccountsController < ApplicationController
   def index
-    @user = User.find_by(params[:user_id])
+    @user = User.find_by(id: params[:user_id])
     @accounts = @user.accounts
   end
 
   def new
-    user = User.find_by(params[:user_id])
+    user = User.find_by(id: params[:user_id])
 
     @account = user.accounts.build
   end
 
   def create
-    user = User.find_by(params[:user_id])
+    user = User.find_by(id: params[:user_id])
     @account = user.accounts.build(account_params)
 
     if @account.save
