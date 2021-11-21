@@ -2,7 +2,7 @@
   <%= render( partial: 'shared/page_heading',
               locals: { title: 'Cuentas',
                         action_button: { name: 'Agregar',
-                                         path: new_user_account_path(@user) } } ) %>
+                                         path: new_user_account_path(current_user) } } ) %>
   <div class='bg-white shadow sm:rounded-md'>
     <%- if @accounts.exists? %>
       <ul class='divide-y divide-gray-200'>

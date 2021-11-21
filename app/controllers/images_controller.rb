@@ -1,12 +1,16 @@
 class ImagesController < ApplicationController
   def index
-    @user = User.find_by(params[:user_id])
+    user = User.find_by(id: params[:user_id])
 
-    @images = @user.images.with_attached_file
+    authorize user, policy_class: ImagePolicy
+
+    @images = policy_scope(Image)
   end
 
   def new
-    user = User.find_by(params[:user_id])
+    user = User.find_by(id: params[:user_id])
+
+    authorize user, policy_class: ImagePolicy
 
     @image = user.images.build
   end
@@ -14,10 +18,12 @@ class ImagesController < ApplicationController
   def create
     user = User.find_by(params[:user_id])
 
+    authorize user, policy_class: ImagePolicy
+
     @image = user.images.build(image_params)
 
     if @image.save
-      redirect_to(user_images_path(user), notice: 'Cuenta creada exitosamente.')
+      redirect_to(user_images_path(user), notice: 'Image created successfully.')
     else
       flash.now[:errors] = @image.errors.full_messages
       render :new
@@ -26,13 +32,17 @@ class ImagesController < ApplicationController
 
   def edit
     @image = Image.find_by(id: params[:id])
+
+    authorize @image
   end
 
   def update
     @image = Image.find_by(id: params[:id])
 
+    authorize @image
+
     if @image.update(image_params)
-      redirect_to(user_images_path(current_user), notice: 'Imagen actualizada exitosamente')
+      redirect_to(user_images_path(current_user), notice: 'Image updated successfully.')
     else
       flash.now[:errors] = @image.errors.full_messages
       render :edit
@@ -42,9 +52,11 @@ class ImagesController < ApplicationController
   def destroy
     @image = Image.find_by(id: params[:id])
 
+    authorize @image
+
     @image.destroy
 
-    redirect_to(user_images_path(current_user), notice: 'Imagen eliminada exitosamente')
+    redirect_to(user_images_path(current_user), notice: 'Image removed successfully.')
   end
 
   private

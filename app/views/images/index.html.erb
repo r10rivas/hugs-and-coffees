@@ -1,7 +1,7 @@
 <div class='container mx-auto px-4 py-6'>
   <%= render( partial: 'shared/page_heading',
               locals: { title: 'Carousel de imagenes',
-                        action_button: { name: 'Agregar', path: new_user_image_path(@user) } } ) %>
+                        action_button: { name: 'Agregar', path: new_user_image_path(current_user) } } ) %>
 
   <div class='bg-white shadow sm:rounded-md'>
     <%- if @images.exists? %>

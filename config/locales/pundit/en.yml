@@ -1,0 +1,16 @@
+en:
+  pundit:
+    default: 'You cannot perform this action.'
+    profile_policy:
+      edit?: 'You cannot edit that profile!'
+      update?: 'You cannot update that profile!'
+      show?: 'That profile not is public!'
+    account_policy:
+      index?: 'You cannot show those accounts!'
+      edit?: 'You cannot edit that account!'
+      update?: 'You cannot update that account!'
+    image_policy:
+      index?: 'You cannot show those images!'
+      edit?: 'You cannot edit that image!'
+      update?: 'You cannot update that image!'
+      destroy?: 'You cannot remove that image!'
