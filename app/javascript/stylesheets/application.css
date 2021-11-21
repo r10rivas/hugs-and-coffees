@@ -1,0 +1,31 @@
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+
+
+/* Add any custom CSS here */
+
+/* start font family */
+
+@font-face {
+  font-family: 'Roboto';
+  src: url('./../fonts/roboto/regular.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'Happy-Monkey';
+  src: url('./../fonts/happy-monkey/regular.ttf') format('truetype');
+}
+
+/* end font family */
+
+
+.transition-nav-menu {
+  transition: 350ms;
+}
+
+#sidebar-wrapper.active {
+  left: 0;
+  transition: 350ms;
+}
+
+@import "tailwindcss/utilities";

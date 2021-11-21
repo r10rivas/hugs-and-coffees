@@ -11,6 +11,39 @@
   </head>
 
   <body>
-    <%= yield %>
+    <div class="bg-gray-50 font-roboto">
+      <%= react_component("navbar/",
+                          { userData: {
+                              user: current_user.profile.full_name || current_user.email,
+                              image: current_user.profile.image.attached? ? url_for(current_user.profile.image) : asset_pack_path('media/images/profile-default.svg')
+                            },
+                            options: [
+                              { label: :perfil,
+                                path: edit_user_profile_path(current_user),
+                                active: active_navigation?(edit_user_profile_path(current_user)),
+                              },
+                              { label: :imagenes,
+                                path: user_images_path(current_user),
+                                active: active_navigation?(user_images_path(current_user)),
+                              },
+                              {
+                                label: :cuentas,
+                                path: user_accounts_path(current_user),
+                                active: active_navigation?(user_accounts_path(current_user)),
+                              },
+                            ]
+                          }
+                         ) if user_signed_in? %>
+      <%= react_component('alerts', alerts: flash) if flash.present? %>
+      <div class="mt-16 max-w-7xl mx-auto">
+        <div class="grid grid-cols-12 gap-1">
+          <%= render partial: 'shared/sidebar' if user_signed_in? %>
+
+          <main class="col-span-full <%= 'lg:col-start-4 lg:col-end-13' if user_signed_in? %>">
+            <%= yield %>
+          </main>
+        </div>
+      </div>
+    </div>
   </body>
 </html>
