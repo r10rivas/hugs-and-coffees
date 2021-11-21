@@ -1,21 +1,17 @@
 class ProfilesController < ApplicationController
   layout 'no_login', only: [:show]
+  before_action :set_profile, only: %w[show edit update, update_status]
+  before_action :authorize_show_profile , only: %w[show]
 
   def show
-    @profile = Profile.find_by(user_id: params[:user_id])
-
     @user = @profile.user
   end
 
-  def edit
-    @profile = Profile.find_by(user_id: params[:user_id])
-  end
+  def edit; end
 
   def update
-    @profile = Profile.find_by(user_id: params[:user_id])
-
     if @profile.update(profile_params)
-      redirect_to(edit_user_profile_path(@profile.user_id), notice: 'Perfil publicado exitosamente')
+      redirect_to(edit_user_profile_path(@profile.user_id), notice: 'Perfil actualizado exitosamente')
     else
       flash.now[:errors] = @profile.errors.full_messages
       render :edit
@@ -23,8 +19,6 @@ class ProfilesController < ApplicationController
   end
 
   def update_status
-    @profile = Profile.find_by(user_id: params[:user_id])
-
     if @profile.update(status_profile_params)
       redirect_to(edit_user_profile_path(@profile.user_id), notice: 'Perfil actualizado exitosamente')
     else
@@ -35,6 +29,10 @@ class ProfilesController < ApplicationController
 
   private
 
+  def set_profile
+    @profile = Profile.find_by(user_id: params[:user_id])
+  end
+
   def status_profile_params
     params.require(:profile).permit(:public)
   end
@@ -42,5 +40,12 @@ class ProfilesController < ApplicationController
   def profile_params
     params.require(:profile)
           .permit(:full_name, :occupation, :biography, :image, :amount_coffee, :currency_symbol)
+  end
+
+  def authorize_show_profile
+    unless @profile.public
+      flash[:errors] = 'El perfil no esta publico.'
+      redirect_to(request.referrer || root_path)
+    end
   end
 end
