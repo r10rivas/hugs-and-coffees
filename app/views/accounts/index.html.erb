@@ -1,7 +1,7 @@
 <div class='container mx-auto px-4 py-6'>
   <%= render( partial: 'shared/page_heading',
-              locals: { title: 'Cuentas',
-                        action_button: { name: 'Agregar',
+              locals: { title: 'Account list',
+                        action_button: { name: 'Add',
                                          path: new_user_account_path(current_user) } } ) %>
   <div class='bg-white shadow sm:rounded-md'>
     <%- if @accounts.exists? %>
@@ -21,8 +21,7 @@
 
                 <div class="flex min-w-0 flex-shrink-0">
                   <%= react_component("dropdown",
-                                      { options: [{path: edit_account_path(account), label: 'Editar'},
-                                                  { path: account_path(account), label: 'Eliminar', method: :delete, confirm: '¿Está seguro que desea eliminar esta cuenta?' }]}
+                                      { options: [{path: edit_account_path(account), label: 'Edit'},]}
                                      ) %>
 
                 </div>

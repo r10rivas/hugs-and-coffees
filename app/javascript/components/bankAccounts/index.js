@@ -4,7 +4,6 @@ function CoffeeInfo({accounts}) {
   const [currentAccount, setCurrentAccount] = useState(accounts[0].account_id);
   const [dataAccount, setDataAccount] = useState(null);
 
-
   useEffect( async () => {
     const response = await fetch(`/api/accounts/${currentAccount}`);
     const data = await response.json();
@@ -43,7 +42,7 @@ function CoffeeInfo({accounts}) {
           </p>
           <p className="mt-2 first:mt-0">
             <span className="mr-2 text-sm font-bold text-gray-700">
-              Nro de cuenta:
+              Number account:
             </span>
             <span className="text-sm font-medium text-gray-700">
               {dataAccount.number}
@@ -59,7 +58,7 @@ function CoffeeInfo({accounts}) {
           </p>
           <p className="mt-2 first:mt-0">
             <span className="mr-2 text-sm font-bold text-gray-700">
-              Tipo de cuenta:
+              Account type:
             </span>
             <span className="text-sm font-medium text-gray-700">
               {`${dataAccount.kind == 'saving' ? 'Ahorro' : 'Corriente'}`}
@@ -71,7 +70,7 @@ function CoffeeInfo({accounts}) {
 
     return (
       <p className="block text-sm font-medium text-gray-700">
-        No posee cuentas registradas.
+        It does not have registered accounts.
       </p>
     )
   }
@@ -84,7 +83,7 @@ function CoffeeInfo({accounts}) {
     <div className="">
       <div className="my-3">
         <label className="block text-sm font-medium text-gray-700">
-          Entidad bancaria
+          Banking entity:
         </label>
         <select
           className="mt-1 focus:ring-app-pink focus:border-app-pink block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
