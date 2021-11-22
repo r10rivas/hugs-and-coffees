@@ -18,16 +18,16 @@
                               image: current_user.profile.image.attached? ? url_for(current_user.profile.image) : asset_pack_path('media/images/profile-default.svg')
                             },
                             options: [
-                              { label: :perfil,
+                              { label: :profile,
                                 path: edit_user_profile_path(current_user),
                                 active: active_navigation?(edit_user_profile_path(current_user)),
                               },
-                              { label: :imagenes,
+                              { label: :images,
                                 path: user_images_path(current_user),
                                 active: active_navigation?(user_images_path(current_user)),
                               },
                               {
-                                label: :cuentas,
+                                label: :accounts,
                                 path: user_accounts_path(current_user),
                                 active: active_navigation?(user_accounts_path(current_user)),
                               },
