@@ -47,7 +47,7 @@ function ImagesCarrousel({imagesData}) {
 
     return ( 
       <p className="mt-12 px-4 py-10">
-        No tiene imágenes registradas.
+        Does not have registered images.
       </p>
     )
   }

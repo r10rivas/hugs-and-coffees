@@ -1,7 +1,7 @@
 <div class='container mx-auto px-4 py-6'>
   <%= render( partial: 'shared/page_heading',
-              locals: { title: 'Carousel de imagenes',
-                        action_button: { name: 'Agregar', path: new_user_image_path(@user) } } ) %>
+              locals: { title: 'Images list',
+                        action_button: { name: 'Add', path: new_user_image_path(current_user) } } ) %>
 
   <div class='bg-white shadow sm:rounded-md'>
     <%- if @images.exists? %>
@@ -23,8 +23,8 @@
 
                 <div class="flex min-w-0 flex-shrink-0">
                   <%= react_component("dropdown",
-                                      { options: [{path: edit_image_path(image), label: 'Editar'},
-                                                  { path: image_path(image), label: 'Eliminar', method: :delete, confirm: '¿Está seguro que desea eliminar esta imagen?' }]}
+                                      { options: [{path: edit_image_path(image), label: 'Edit'},
+                                                  { path: image_path(image), label: 'Delete', method: :delete, confirm: 'Are you sure you want to delete this image?' }]}
                                      ) %>
                 </div>
               </div>

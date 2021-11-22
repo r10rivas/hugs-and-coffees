@@ -1,29 +1,25 @@
-<div class='min-h-screen p-4 flex flex-col justify-between items-center lg:py-8'>
+<div class="min-h-screen-without-navbar p-4 flex flex-col justify-between items-center lg:py-8">
   <div class="w-40 my-4 md:w-44">
     <%= image_pack_tag('coffees.svg', class: 'w-full') %>
   </div>
-  <h3 class="mb-3 text-center text-xl font-happy-monkey md:text-2xl">
-    Un café es un abrazo atrapado en una taza
+  <h3 class="mb-3 text-center text-gray-700 text-xl font-happy-monkey md:text-2xl">
+    A coffee is a hug trapped in a cup
   </h3>
   <h5 class="mb-6 text-gray-400 text-center text-lg md:text-xl">
-    Recibe aprecio y gratitud mediante donaciones online
+    Receive appreciation and gratitude through online donations
   </h5>
   <div class="flex flex-col mb-8">
-    <%= link_to 'Crear mi perfil', new_user_registration_path, class: 'px-4 py-3 bg-app-pink rounded-md text-white text-center' %>
-    <div class='p-4 text-center'>
-      Ya tienes perfil?
-      <%= link_to('Sign in', new_user_session_path, { class: 'font-medium text-app-pink hover:text-opacity-80 cursor-pointer' }) %>
-    </div>
+    <%= link_to 'Create my profile', new_user_registration_path, class: 'px-4 py-3 border border-transparent text-sm font-medium rounded-md text-white text-center bg-app-pink hover:bg-opacity-80 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-app-pink focus:ring-opacity-50' %>
   </div>
 </div>
-<div class='min-h-screen px-4 py-8 flex flex-col justify-between items-center bg-app-pink text-white lg:py-12'>
+<div class="min-h-screen-without-navbar px-4 py-8 flex flex-col justify-between items-center bg-app-pink text-white lg:py-12">
   <div class=''>
     <h3 class='font-happy-monkey mt-4 mb-3 text-center text-xl md:text-2xl'>
-      Un perfil dedicado a recibir agradecimientos
+      A profile dedicated to receiving thanks.
     </h3>
     <hr class='w-full border-b-2 mb-6 lg:mb-12'/>
     <p class='mb-4 text-center text-lg md:text-xl'>
-      Puedes crear una página en minutos sin conocimientos técnicos. Muestra tus datos y agradecimientos recibidos de otras personas.
+      You can create a page in minutes without technical knowledge. Show your data and thanks received from other people.
     </p>
   </div>
   <div class='w-60 my-4 md:w-72'>

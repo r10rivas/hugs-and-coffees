@@ -1,6 +1,6 @@
 <div class='container mx-auto px-4 py-6'>
   <%= render( partial: 'shared/page_heading',
-              locals: { title: 'Editar imagen' } ) %>
+              locals: { title: 'New image' } ) %>
 
   <%= form_with(model: [@image.user, @image], local: true, id: 'edit-image') do |f| %>
 
@@ -8,10 +8,10 @@
       <div class='md:col-span-1'>
         <div class='px-4 sm:px-0'>
           <h3 class='text- font-medium leading-6 text-gray-900'>
-            Imagen del carousel
+            Image
           </h3>
           <p class="mt-1 text-sm text-gray-600">
-            Agregar imagen que se mostrara en el carousel del perfil público
+            Add image to be displayed in the public profile carousel.
           </p>
         </div>
       </div>
@@ -43,10 +43,10 @@
         <div class="md:col-span-1">
           <div class="px-4 sm:px-0">
             <h3 class="text- font-medium leading-6 text-gray-900">
-              Datos de la imagen
+              Image data
             </h3>
             <p class="mt-1 text-sm text-gray-600">
-              Parametros de publicación y leyenda de la imagen a mostrarse en el carousel
+              Publication parameters and image caption to be displayed in the carousel.
             </p>
           </div>
         </div>
@@ -56,8 +56,8 @@
             <div class="px-4 py-5 bg-white sm:p-6">
               <div class="grid grid-cols-6 gap-6">
                 <div class="col-span-6">
-                  <%= f.label :caption, 'Subtítulo', { class: 'block text-sm font-medium text-gray-700' } %>
-                  <%= f.text_field :caption, { class: 'mt-1 focus:ring-app-pink focus:border-app-pink block w-full shadow-sm sm:text-sm border-gray-300 rounded-md', placeholder: 'Subtítulo', required: true } %>
+                  <%= f.label :caption, 'Caption', { class: 'block text-sm font-medium text-gray-700' } %>
+                  <%= f.text_field :caption, { class: 'mt-1 focus:ring-app-pink focus:border-app-pink block w-full shadow-sm sm:text-sm border-gray-300 rounded-md', placeholder: 'Enter image caption', required: true } %>
                 </div>
               </div>
             </div>
@@ -74,7 +74,7 @@
     </div>
 
     <div class='px-4 py-3 bg-gray-50 text-right sm:px-6'>
-      <%= f.submit('Crear', { class: 'inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-app-pink hover:bg-opacity-80 focus:outline-none focus:ring-2 focus:ring-offset-2  focus:ring-app-pink focus:ring-opacity-50 cursor-pointer', data: { disable_with: 'Por favor espere...' } }) %>
+      <%= f.submit(nil, { class: 'inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-app-pink hover:bg-opacity-80 focus:outline-none focus:ring-2 focus:ring-offset-2  focus:ring-app-pink focus:ring-opacity-50 cursor-pointer', data: { disable_with: 'Wait...' } }) %>
     </div>
   <% end %>
 </div>

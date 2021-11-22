@@ -26,11 +26,11 @@ function AcknowledgmentsCarrousel({acknowledgments}) {
 
   const _buildCard = (item) => {
     return (
-      <figure className="relative inline-block overflow-hidden mt-4 mx-auto w-full min-w-72 max-w-72 sm:min-w-80 sm:max-w-80 md:max-w-92 bg-blue-300 p-4 rounded-md">
+      <figure className="relative inline-block overflow-hidden mt-4 mx-auto w-full min-w-72 max-w-72 sm:min-w-80 sm:max-w-80 md:max-w-92 bg-white p-4 rounded-md shadow-md">
         <div className="h-48 sm:h-56">
           <div className="flex justify-between">
             <div className="flex flex-col min-w-0">
-              <span className="block text-left truncate">{item.name}</span>
+              <span className="block text-left font-semibold truncate">{item.name}</span>
               <span className="block text-left truncate">{item.occupation}</span>
             </div>
             <div className="h-14 ml-3 relative">
@@ -59,7 +59,7 @@ function AcknowledgmentsCarrousel({acknowledgments}) {
 
     return ( 
       <p className="mt-12 mb-6 px-4 py-10">
-        No ha recibido reconocimientos.
+        It has not received any recognition.
       </p>
     )
   }

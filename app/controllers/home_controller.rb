@@ -2,6 +2,8 @@ class HomeController < ApplicationController
   skip_before_action :authenticate_user!
   before_action :authenticated_user
 
+  layout 'no_login'
+
   def index; end
 
   private
