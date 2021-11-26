@@ -2,15 +2,15 @@
 #
 # Table name: accounts
 #
-#  id         :integer          not null, primary key
+#  id         :bigint           not null, primary key
 #  dni        :string
 #  email      :string
 #  kind       :integer
 #  number     :string
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
-#  bank_id    :integer          not null
-#  user_id    :integer          not null
+#  bank_id    :bigint           not null
+#  user_id    :bigint           not null
 #
 # Indexes
 #
@@ -19,8 +19,8 @@
 #
 # Foreign Keys
 #
-#  bank_id  (bank_id => banks.id)
-#  user_id  (user_id => users.id)
+#  fk_rails_...  (bank_id => banks.id)
+#  fk_rails_...  (user_id => users.id)
 #
 require "test_helper"
 
