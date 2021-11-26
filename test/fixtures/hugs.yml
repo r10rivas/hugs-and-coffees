@@ -1,43 +1,35 @@
 # == Schema Information
 #
-# Table name: coffees
+# Table name: hugs
 #
 #  id         :bigint           not null, primary key
-#  message    :string
+#  duration   :decimal(, )
+#  message    :text
 #  name       :string
 #  occupation :string
-#  quantity   :integer
-#  total      :decimal(, )
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
-#  account_id :bigint           not null
 #  user_id    :bigint           not null
 #
 # Indexes
 #
-#  index_coffees_on_account_id  (account_id)
-#  index_coffees_on_user_id     (user_id)
+#  index_hugs_on_user_id  (user_id)
 #
 # Foreign Keys
 #
-#  fk_rails_...  (account_id => accounts.id)
 #  fk_rails_...  (user_id => users.id)
 #
 
 one:
-  quantity: 1
-  total: 9.99
+  duration: 9.99
   name: MyString
+  message: MyText
   occupation: MyString
-  message: MyString
   user: one
-  account: one
 
 two:
-  quantity: 1
-  total: 9.99
+  duration: 9.99
   name: MyString
+  message: MyText
   occupation: MyString
-  message: MyString
   user: two
-  account: two

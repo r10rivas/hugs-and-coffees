@@ -2,7 +2,7 @@
 #
 # Table name: coffees
 #
-#  id         :integer          not null, primary key
+#  id         :bigint           not null, primary key
 #  message    :string
 #  name       :string
 #  occupation :string
@@ -10,8 +10,8 @@
 #  total      :decimal(, )
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
-#  account_id :integer          not null
-#  user_id    :integer          not null
+#  account_id :bigint           not null
+#  user_id    :bigint           not null
 #
 # Indexes
 #
@@ -20,8 +20,8 @@
 #
 # Foreign Keys
 #
-#  account_id  (account_id => accounts.id)
-#  user_id     (user_id => users.id)
+#  fk_rails_...  (account_id => accounts.id)
+#  fk_rails_...  (user_id => users.id)
 #
 class Coffee < ApplicationRecord
   belongs_to :user
