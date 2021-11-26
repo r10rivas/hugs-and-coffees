@@ -22,19 +22,4 @@ module ApplicationHelper
       }
     end
   end
-
-
-  def acknowledgments(user)
-    acknowledgments_coffees = user.coffees.map do |coffee|
-      {
-        type: :coffee,
-        name: coffee.name,
-        occupation: coffee.occupation,
-        message: coffee.message,
-        quantity: coffee.quantity,
-      }
-    end
-
-    acknowledgments_coffees
-  end
 end

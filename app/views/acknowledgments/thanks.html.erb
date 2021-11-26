@@ -1,0 +1,17 @@
+<div class="w-full h-full min-h-screen-without-navbar py-4">
+  <%= link_to(user_profile_path(@user) ,class: 'inline-flex items-center text-gray-700 text text-base') do %>
+    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+    </svg>
+    <span>Profile</span>
+  <% end %>
+
+  <div class="w-full mt-6 max-w-xl lg:max-w-2xl mx-auto">
+    <div className="w-full flex flex-col items-center">
+      <%= image_pack_tag('thanks.svg', class:'mx-auto md:w-72 lg:w-80') %>
+    </div>
+    <p class="mt-8 text-center text-gray-700 font-happy-monkey text-lg">
+      Thanks!
+    </p>
+  </div>
+</div>

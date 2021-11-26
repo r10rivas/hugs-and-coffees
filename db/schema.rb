@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_11_20_041115) do
+ActiveRecord::Schema.define(version: 2021_11_25_175730) do
 
   create_table "accounts", force: :cascade do |t|
     t.string "dni"
@@ -73,6 +73,17 @@ ActiveRecord::Schema.define(version: 2021_11_20_041115) do
     t.index ["user_id"], name: "index_coffees_on_user_id"
   end
 
+  create_table "hugs", force: :cascade do |t|
+    t.decimal "duration"
+    t.string "name"
+    t.text "message"
+    t.string "occupation"
+    t.integer "user_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_hugs_on_user_id"
+  end
+
   create_table "images", force: :cascade do |t|
     t.string "caption"
     t.integer "user_id", null: false
@@ -113,6 +124,7 @@ ActiveRecord::Schema.define(version: 2021_11_20_041115) do
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
   add_foreign_key "coffees", "accounts"
   add_foreign_key "coffees", "users"
+  add_foreign_key "hugs", "users"
   add_foreign_key "images", "users"
   add_foreign_key "profiles", "users"
 end

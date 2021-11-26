@@ -5,8 +5,13 @@ Rails.application.routes.draw do
 
   resources :users, shallow: true do
     resources :accounts
-    resources :acknowledgments, only: %w[new]
+    resources :acknowledgments, only: %w[new] do
+      get 'thanks', on: :collection
+    end
     resources :coffees, only: %w[new create]
+    resources :hugs, only: %w[new create] do
+      get 'set_duration', on: :collection
+    end
     resources :images
     resource :profile, only: %w[edit update show]  do
       post 'update_status', on: :member

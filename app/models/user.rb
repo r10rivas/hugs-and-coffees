@@ -24,6 +24,7 @@ class User < ApplicationRecord
 
   has_many :accounts
   has_many :coffees
+  has_many :hugs
   has_many :images
   has_one :profile
 

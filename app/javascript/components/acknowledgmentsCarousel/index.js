@@ -4,6 +4,7 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import "./custom-styles.css";
 import coffee from "./../../images/coffee.svg";
+import heart from "./../../images/heart.svg";
 
 function AcknowledgmentsCarrousel({acknowledgments}) {
   let settings = {
@@ -24,6 +25,14 @@ function AcknowledgmentsCarrousel({acknowledgments}) {
     ]
   };
 
+  const truncateHugSeconds = seconds => {
+    if (seconds > 99) {
+      return '+99 s';
+    }
+
+    return `${seconds} s`;
+  }
+
   const _buildCard = (item) => {
     return (
       <figure className="relative inline-block overflow-hidden mt-4 mx-auto w-full min-w-72 max-w-72 sm:min-w-80 sm:max-w-80 md:max-w-92 bg-white p-4 rounded-md shadow-md">
@@ -33,10 +42,12 @@ function AcknowledgmentsCarrousel({acknowledgments}) {
               <span className="block text-left font-semibold truncate">{item.name}</span>
               <span className="block text-left truncate">{item.occupation}</span>
             </div>
-            <div className="h-14 ml-3 relative">
-              <img className="h-full" src={coffee}></img>
-              <div className="w-6 h-6 bg-white border border-app-pink rounded-full absolute -right-2 -top-1.5">
-                {item.quantity}
+            <div className="h-14 w-14 ml-3 relative">
+              <img className="h-full w-full" src={item.type === 'hug' ? heart : coffee }></img>
+              <div className="w-9 h-9 bg-white border border-app-pink rounded-full absolute -right-2 -top-1.5 text-xs flex justify-center items-center min-w-0">
+                <span className="truncate">
+                  {item.type == 'hug' ? truncateHugSeconds(item.duration) : item.quantity}
+                </span>
               </div>
             </div>
           </div>
