@@ -5,7 +5,6 @@
 /* Add any custom CSS here */
 
 /* start font family */
-
 @font-face {
   font-family: 'Roboto';
   src: url('./../fonts/roboto/regular.ttf') format('truetype');
@@ -15,8 +14,18 @@
   font-family: 'Happy-Monkey';
   src: url('./../fonts/happy-monkey/regular.ttf') format('truetype');
 }
-
 /* end font family */
+
+/* start social shared */
+.social-share-button {
+  @apply flex justify-end;
+}
+
+.social-share-button .ssb-icon {
+  @apply ml-2 first:ml-0 w-8 h-8;
+  background-size: 2rem 2rem;
+}
+/* end social shared */
 
 
 .transition-nav-menu {

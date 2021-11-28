@@ -8,6 +8,11 @@ import Turbolinks from "turbolinks"
 import * as ActiveStorage from "@rails/activestorage"
 import "channels"
 
+// Import social-share-button
+// https://github.com/huacnlee/social-share-button/issues/189#issuecomment-635206871
+require('packs/social-share-button.js.erb')
+
+// Import css
 import  "../stylesheets/application.css";
 
 Rails.start()

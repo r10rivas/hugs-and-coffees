@@ -21,8 +21,42 @@
               <div class='col-span-6'>
                 <%= f.hidden_field :public, value: !@profile.public %>
                 <div class="text-left md:text-right">
-                  <%= f.submit(@profile.public ? 'Unpublish' : 'Publish', class: "inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-app-pink hover:bg-opacity-80 focus:outline-none focus:ring-2 focus:ring-offset-2  focus:ring-app-pink focus:ring-opacity-50 cursor-pointer #{'bg-opacity-60 pointer-events-none' unless @profile.publishable?}", disabled: !@profile.publishable?, data: { disable_with: 'Por favor espere...' }) %>
+                  <%= f.submit(@profile.public ? 'Unpublish' : 'Publish', class: "inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-app-pink hover:bg-opacity-80 focus:outline-none focus:ring-2 focus:ring-offset-2  focus:ring-app-pink focus:ring-opacity-50 cursor-pointer #{'bg-opacity-60 pointer-events-none' unless @profile.publishable?}", disabled: !@profile.publishable?, data: { disable_with: 'Wait...' }) %>
                 </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="hidden sm:block">
+      <div class="py-5">
+        <div class="border-t border-gray-200">
+        </div>
+      </div>
+    </div>
+  <% end %>
+
+  <% if @profile.public %>
+    <div class='md:grid md:grid-cols-3 md:gap-6'>
+      <div class='md:col-span-1'>
+        <div class='px-4 sm:px-0'>
+          <h3 class='text- font-medium leading-6 text-gray-900'>
+            Share
+          </h3>
+          <p class="mt-1 text-sm text-gray-600">
+            You can share your profile in RRSS.
+          </p>
+        </div>
+      </div>
+
+      <div class='mt-5 md:mt-0 md:col-span-2'>
+        <div class="overflow-hidden">
+          <div class="px-4 py-5 md:p-6">
+            <div class='grid grid-cols-6 gap-6'>
+              <div class="col-span-6">
+                <%= social_share_button_tag(@profile.full_name, url: user_profile_url(@profile.user)) %>
               </div>
             </div>
           </div>
@@ -149,7 +183,7 @@
 
 
     <div class='px-4 py-3 bg-gray-50 text-right sm:px-6'>
-      <%= f.submit(nil, { class: 'inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-app-pink hover:bg-opacity-80 focus:outline-none focus:ring-2 focus:ring-offset-2  focus:ring-app-pink focus:ring-opacity-50 cursor-pointer', data: { disable_with: 'Por favor espere...' } }) %>
+      <%= f.submit(nil, { class: 'inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-app-pink hover:bg-opacity-80 focus:outline-none focus:ring-2 focus:ring-offset-2  focus:ring-app-pink focus:ring-opacity-50 cursor-pointer', data: { disable_with: 'Wait...' } }) %>
     </div>
   <% end %>
 </div> 

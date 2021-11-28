@@ -22,6 +22,8 @@ gem 'jbuilder', '~> 2.7'
 gem 'react-rails'
 #  Use for authorization system
 gem 'pundit'
+# Shered links with social media
+gem "social-share-button", "~> 1.2"
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 4.0'
 # Use Active Model has_secure_password
