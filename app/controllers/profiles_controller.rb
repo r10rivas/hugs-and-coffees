@@ -1,6 +1,6 @@
 class ProfilesController < ApplicationController
   skip_before_action :authenticate_user!
-  before_action :set_profile, only: %i[show edit update, update_status]
+  before_action :set_profile, only: %i[show edit update update_status]
 
   def show
     authorize @profile
