@@ -25,9 +25,9 @@ function ImagesCarrousel({imagesData}) {
 
   const _buildCard = (item) => {
     return (
-      <figure className="relative inline-block overflow-hidden mt-4 mx-auto w-full min-w-72 max-w-72 sm:min-w-80 sm:max-w-80 md:max-w-92">
+      <figure className="relative inline-block mt-4 mx-auto w-full min-w-72 max-w-72 sm:min-w-80 sm:max-w-80 md:max-w-92">
         <div className="h-72">
-          <img className="rounded-lg" src={item.image}></img>
+          <img className="rounded-lg h-full w-full" src={item.image}></img>
           <h3 className="mt-2 italic line-clamp-3">{item.subtitule}</h3>
         </div>
       </figure>
