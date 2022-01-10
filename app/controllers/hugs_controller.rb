@@ -11,7 +11,7 @@ class HugsController < ApplicationController
   end
 
   def create
-    user = User.find_by(params[:user_id])
+    user = User.find_by(id: params[:user_id])
 
     @hug = user.hugs.build(hug_params)
 

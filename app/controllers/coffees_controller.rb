@@ -7,7 +7,7 @@ class CoffeesController < ApplicationController
   end
 
   def create
-    user = User.find_by(params[:user_id])
+    user = User.find_by(id: params[:user_id])
 
     @coffee = user.coffees.build(coffee_params)
 
